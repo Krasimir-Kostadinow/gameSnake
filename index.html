@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Game Snake</title>
+</head>
+
+<body>
+    <h1>Snake - The Game</h1>
+    <label for="snakeLength">The Snake is long... </label>
+    <input id="snakeLength" type="number" value="3" />
+    <label for="stonesNumber">Stone</label>
+    <input id="stonesNumber" type="number" value="1" />
+    <label for="foodNumber">Food</label>
+    <input id="foodNumber" type="number" value="5" />
+    <button id="btnStart">Start</button>
+    <strong>Lives: </strong><span id="lives"></span>
+    <strong>Points: </strong><span id="points"></span>
+    <section class="clearfix">
+
+        <canvas id="gameField"></canvas>
+
+        <aside id="legend">
+            <p>
+                <img id="snake" src="images/headSnake.jpg" width="20" height="20" /> A picture of you... <br />
+                <img id="apple" src="images/apple.jpg" width="20" height="20" /> Food! Eat to grow <br />
+                <img id="stone" src="images/stone.png" width="20" height="20" /> Stones... Ouch!!! <br />
+            </p>
+            <p>
+                Use arrows keys to control the snake. <br /> Press 'Q' to quit or 'P' to put the game on pause.
+            </p>
+            <p>
+                <strong>Press button Start to start the game</strong>
+            </p>
+        </aside>
+
+    </section>
+
+<script type="module" src="js/main.js"></script>
+</body>
+
+</html>
