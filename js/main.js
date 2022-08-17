@@ -1,5 +1,5 @@
-import * as Engine from './modules/gameEngine.js';
+// import * as Engine from './modules/gameEngine.js';
 
-document.getElementById('btnStart').onclick = Engine.startGame;
+// document.getElementById('btnStart').onclick = Engine.startGame;
 
-// console.log('ZZZZZZ');
+console.log('ZZZZZZ');
