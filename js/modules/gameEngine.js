@@ -1,9 +1,9 @@
-import GameField, * as GameField from './GameField.js';
+import * as GameField from './GameField.js';
 import * as Snake from './Snake.js';
 import * as SnakeBody from './SnakeBody.js';
 import * as Food from './Food.js';
 import * as Stone from './Stone.js';
-import * as Helper from './helper';
+import * as Helper from './helper.js';
 
 
 var gameObjects = [],
