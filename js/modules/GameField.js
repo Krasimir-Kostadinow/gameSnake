@@ -9,9 +9,9 @@ export default class GameField {
         this.ctx = canvas.getContext('2d');
     }
 
-    draw(gameObkects) {
-        for (let i = 0; i < gameObkects.length; i++) {
-            gameObkects[i].draw(this.ctx);
+    draw(gameObjects) {
+        for (let i = 0; i < gameObjects.length; i++) {
+            gameObjects[i].draw(this.ctx);
         }
     }
 
