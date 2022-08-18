@@ -23,7 +23,7 @@ function startGame() {
     gameObjects = [];
     clearInterval(intervalid);
 
-    if (snakeLength > ((gameField.size.WIDTH - 100) / Helper.ObjectSize.WIDTH) || snakeLength <= 1) {
+    if (snakeLength > ((Helper.GameField.WIDTH - 100) / Helper.ObjectSize.WIDTH) || snakeLength <= 1) {
         snakeLength = 3;
     }
 
@@ -54,5 +54,24 @@ function startGame() {
 
     gameObjects.push(snake);
 
+    for (let i = 0; i < numberOfStones; i++) {
+        stone = new Stone(Helper.getRandomPositionX(0, Helper.FieldSize.WIDTH - Helper.ObjectSize.WIDTH),
+            Helper.getRandomPositionY(0, Helper.FieldSize.HEIGHT - Helper.ObjectSize.HEIGHT));
+
+        gameObjects.push(stone);
+
+    }
+
+    for (let i = 0; i < numberOfFood; i++) {
+        food = new Food(Helper.getRandomPositionX(0, Helper.FieldSize.WIDTH - Helper.ObjectSize.WIDTH),
+            Helper.getRandomPositionY(0, Helper.FieldSize.HEIGHT - Helper.ObjectSize.HEIGHT));
+
+        gameObjects.push(food);
+
+    }
+
+    document.addEventListener('keydown', getKey, false);
+
+    gameField.drow(gameObjects);
 
 }
