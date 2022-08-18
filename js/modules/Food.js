@@ -1,5 +1,5 @@
 import * as GameObject from './GameObject.js';
-import * as Helper from './helper';
+import * as Helper from './helper.js';
 
 
 export default class Food extends GameObject {
