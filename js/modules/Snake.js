@@ -1,12 +1,12 @@
-import * as GameObject from './GameObject.js';
+import * as GameObject from './gameObject.js';
 import * as Helper from './helper.js';
 import * as SnakeBody from './SnakeBody.js';
 import * as Engine from './gameEngine.js';
 
-export default class Snake extends GameObject {
+export default class Snake {
     constructor(x, y, length, direction) {
         this.lives = 5;
-        super(x, y, false, document.getElementById('snake'));
+        new GameObject(x, y, false, document.getElementById('snake'));
         this.length = length;
         this.color = 'green';
         this.positionStack = [];

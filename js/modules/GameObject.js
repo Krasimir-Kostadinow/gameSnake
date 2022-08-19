@@ -25,12 +25,12 @@ export default class GameObject {
 
     draw(ctx) {
         ctx.fillStyle = this.color;
-        ctx.moveTo(positionX, positionY);
+        ctx.moveTo(this.position.X, this.position.Y);
 
         if (this.icon) {
-            ctx.drawImage(this.icon, positionX, positionY);
+            ctx.drawImage(this.icon, this.position.X, this.position.Y);
         } else {
-            ctx.fillRect(this.positionX, this.positionX, this.size.WIDTH, this.size.HEIGHT);
+            ctx.fillRect(this.position.X, this.position.Y, this.size.WIDTH, this.size.HEIGHT);
         }
     }
 }

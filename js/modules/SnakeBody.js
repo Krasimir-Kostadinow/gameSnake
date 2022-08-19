@@ -1,9 +1,9 @@
-import * as GameObject from './GameObject.js';
+import * as GameObject from './gameObject.js';
 
 
-export default class SnakeBody extends GameObject {
+export default class SnakeBody {
     constructor(x, y) {
-        super(x, y, false);
+        new GameObject(x, y, false);
         this.color = 'lightgreen';
     }
 

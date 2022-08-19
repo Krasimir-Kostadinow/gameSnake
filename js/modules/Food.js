@@ -1,10 +1,10 @@
-import * as GameObject from './GameObject.js';
+import * as GameObject from './gameObject.js';
 import * as Helper from './helper.js';
 
 
-export default class Food extends GameObject {
+export default class Food {
     constructor(x, y) {
-        super(x, y, true, document.getElementById('apple'));
+        new GameObject(x, y, true, document.getElementById('apple'));
         this.color = 'red';
     }
 

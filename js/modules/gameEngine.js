@@ -8,10 +8,10 @@ import * as Helper from './helper.js';
 
 
 
-var gameObjects = [],
-    gameField = new GameField(document.getElementById('gameField')),
-    intervalid = 0,
-    snake = null;
+var gameObjects = [];
+var gameField = new GameField(document.getElementById('canvas'));
+var intervalid = 0;
+var snake = null;
 
 function startGame() {
     var snakeLength = parseInt(document.getElementById('snakeLength').value),
@@ -166,4 +166,4 @@ function getKey(event) {
 
 }
 
-export {startGame, endGame};
+export { startGame, endGame };

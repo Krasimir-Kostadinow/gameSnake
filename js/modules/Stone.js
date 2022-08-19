@@ -1,8 +1,8 @@
-import * as GameObject from './GameObject.js';
+import * as GameObject from './gameObject.js';
 
-export default class Stone extends GameObject {
+export default class Stone {
     constructor(x, y) {
-        super(x, y, false, document.getElementById('stone'));
+        new GameObject(x, y, false, document.getElementById('stone'));
         this.color = 'grey';
     }
 
