@@ -28,10 +28,10 @@ function getRandomPositionY(start, end) {
 
 
 class GameField {
-    
+
     constructor(canvas) {
-        canvas.height = Helper.FieldSize.HEIGHT;
-        canvas.width = Helper.FieldSize.WIDTH;
+        canvas.height = FieldSize.HEIGHT;
+        canvas.width = FieldSize.WIDTH;
         this.ctx = canvas.getContext('2d');
     }
 
@@ -69,7 +69,7 @@ class GameObject {
         throw new Error('Not Implemented');
     }
 
-    draw(ctx) {
+    draw(ctx) { 
         ctx.fillStyle = this.color;
         ctx.moveTo(this.position.X, this.position.Y);
 
@@ -81,7 +81,7 @@ class GameObject {
     }
 }
 
-class Food extends GameObject{
+class Food extends GameObject {
     constructor(x, y) {
         super(x, y, true, document.getElementById('apple'));
         this.color = 'red';
@@ -91,7 +91,7 @@ class Food extends GameObject{
         if (this.isDistroyed) {
             this.position.X = getRandomPositionX(0, FieldSize.WIDTH - this.size.WIDTH);
             this.position.Y = getRandomPositionY(0, FieldSize.HEIGHT - this.size.HEIGHT);
-            
+
             this.isDistroyed = false;
         }
 
@@ -105,7 +105,7 @@ class Stone extends GameObject {
     }
 
     update() {
-        
+
     }
 }
 
@@ -120,10 +120,10 @@ class SnakeBody extends GameObject {
     }
 }
 
-class Snake extends GameObject{
+class Snake extends GameObject {
     constructor(x, y, length, direction) {
-        this.lives = 5;
         super(x, y, false, document.getElementById('snake'));
+        this.lives = 5;
         this.length = length;
         this.color = 'green';
         this.positionStack = [];
@@ -133,7 +133,7 @@ class Snake extends GameObject{
         this.totalFood = 0;
     }
     update() {
-     
+
         let position = {
             X: this.position.X,
             Y: this.position.Y
@@ -183,7 +183,7 @@ class Snake extends GameObject{
             this.totalFood++;
         } else {
             if (this.lives === 0) {
-                gameEnd();
+                endGame();
             } else {
                 this.lives--;
                 this.reset();
@@ -206,7 +206,7 @@ class Snake extends GameObject{
     reset() {
         this.direction = Directions.RIGHT;
         let x = (this.length + 2) * this.size.WIDTH;
-        let y = Helper.getRandomPositionY(0, FieldSize.HEIGHT - this.size.HEIGHT);
+        let y = getRandomPositionY(0, FieldSize.HEIGHT - this.size.HEIGHT);
         this.position.X = x;
         this.position.Y = y;
 
@@ -256,7 +256,8 @@ class Snake extends GameObject{
 }
 
 var gameObjects = [];
-var gameField = new GameField(document.getElementById('canvas'));
+let canvas = document.getElementById('gameField');
+var gameField = new GameField(canvas);
 var intervalid = 0;
 var snake = null;
 
@@ -291,7 +292,7 @@ function startGame() {
 
     snake = new Snake(x, y, snakeLength - 1, Directions.RIGHT);
 
-    for (let i = 0; i < snakeLength; i++) {
+    for (let i = 1; i < snakeLength; i++) {
         var position = {
             X: x - (i * ObjectSize.WIDTH),
             Y: y
@@ -315,7 +316,7 @@ function startGame() {
 
     for (let i = 0; i < numberOfFood; i++) {
         food = new Food(getRandomPositionX(0, FieldSize.WIDTH - ObjectSize.WIDTH),
-            Helper.getRandomPositionY(0, FieldSize.HEIGHT - ObjectSize.HEIGHT));
+            getRandomPositionY(0, FieldSize.HEIGHT - ObjectSize.HEIGHT));
 
         gameObjects.push(food);
 
@@ -323,9 +324,9 @@ function startGame() {
 
     document.addEventListener('keydown', getKey, false);
 
-    gameField.drow(gameObjects);
+    gameField.draw(gameObjects);
 
-    intervalid = setInterval(update, Helper.GameSpeed);
+    intervalid = setInterval(update, GameSpeed);
 }
 
 function endGame() {
@@ -356,11 +357,11 @@ function collisionDetect() {
         snake.onCollision(snake);
     }
 
-    if (hasBittenHerSelf()) {
+    if (snake.hasBittenHerSelf()) {
         snake.onCollision(snake);
     }
 
-    for (let i = 0; i < gameObjects.length; i++) {
+    for (let i = 1; i < gameObjects.length; i++) {
         if (collide(snake, gameObjects[i])) {
             snake.onCollision(gameObjects[i]);
             gameObjects[i].onCollision();
