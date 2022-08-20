@@ -16,7 +16,7 @@ const FieldSize = Object.freeze({
     HEIGHT: 500
 });
 
-const GameSpeed = 100;
+const GameSpeed = 160;
 
 function getRandomPositionX(start, end) {
     return Math.floor((Math.random() * (end - start + 1) + start) / ObjectSize.WIDTH) * ObjectSize.WIDTH;
