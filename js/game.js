@@ -1,3 +1,4 @@
+(function() {
 
 const Directions = Object.freeze({
     UP: 'up',
@@ -18,7 +19,7 @@ const FieldSize = Object.freeze({
 
 let GameSpeed = 160;
 let recordPoints = 0;
-let playerRecord = 'no Record';
+let playerRecord = 'No Record';
 document.getElementById('record').textContent = playerRecord;
 
 
@@ -268,13 +269,13 @@ var snake = null;
 document.getElementById('btnStart').addEventListener('click', startGame);
 
 function startGame() {
-    var snakeLength = parseInt(document.getElementById('snakeLength').value),
+    let snakeLength = parseInt(document.getElementById('snakeLength').value),
         numberOfStones = parseInt(document.getElementById('stonesNumber').value),
         numberOfFood = parseInt(document.getElementById('foodNumber').value),
         stone = null,
-        food = null,
+        food = null;
 
-        GameSpeed = document.getElementById('speedSnake').value;
+    GameSpeed = document.getElementById('speedSnake').value;
     gameObjects = [];
     clearInterval(intervalid);
 
@@ -283,7 +284,7 @@ function startGame() {
     }
 
     if (numberOfStones < 0) {
-        numberOfStones = 10;
+        numberOfStones = 5;
     }
 
     if (numberOfFood <= 0) {
@@ -343,12 +344,13 @@ function afterEndGameEvents() {
     gameField.ctx.font = fondSize + 'px Arial';
     gameField.ctx.textAlign = 'center';
     gameField.ctx.fillStyle = 'green';
-    
+
 
     if (Number(document.getElementById('points').textContent > recordPoints)) {
-        gameField.ctx.fillText('Congratulations! new record.', FieldSize.WIDTH / 2, FieldSize.HEIGHT / 2);
-        playerRecord = `The record is held by player ${document.getElementById('namePlayer').value} with points:${document.getElementById('points').textContent}, speed ${document.getElementById('speedSnake').value}, start length ${document.getElementById('snakeLength').value}, stones ${document.getElementById('stonesNumber').value}, food ${document.getElementById('foodNumber').value}.`;
+        gameField.ctx.fillText('Congratulations! New record.', FieldSize.WIDTH / 2, FieldSize.HEIGHT / 2);
+        playerRecord = `Record: ${document.getElementById('points').textContent} points`;
         document.getElementById('record').textContent = playerRecord;
+        recordPoints = Number(document.getElementById('points').textContent);
     } else {
         gameField.ctx.fillText('Game Over', FieldSize.WIDTH / 2, FieldSize.HEIGHT / 2);
     }
@@ -422,8 +424,9 @@ function getKey(event) {
             break;
     }
 
-
 }
+
+})();
 
 
 
