@@ -10,6 +10,10 @@
 
 <body>
     <h1>Snake - The Game</h1>
+    <label for="namePlayer">name Player</label>
+    <input id="namePlayer" type='text' />
+    <label for="speedSnake">Speed</label>
+    <input id="speedSnake" type="number" value="150" min="100" max="200" />
     <label for="snakeLength">The Snake is long... </label>
     <input id="snakeLength" type="number" value="3" />
     <label for="stonesNumber">Stone</label>
@@ -30,6 +34,7 @@
                 <img id="stone" src="images/stone.png" width="20" height="20" /> Stones... Ouch!!! <br />
 
             </p>
+            <h3 id="record"></h3>
             <p>
                 Use arrows keys to control the snake. <br /> Press 'Q' to quit or 'P' to put the game on pause.
             </p>

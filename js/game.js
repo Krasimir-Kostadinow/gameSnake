@@ -16,7 +16,11 @@ const FieldSize = Object.freeze({
     HEIGHT: 500
 });
 
-const GameSpeed = 160;
+let GameSpeed = 160;
+let recordPoints = 0;
+let playerRecord = 'no Record';
+document.getElementById('record').textContent = playerRecord;
+
 
 function getRandomPositionX(start, end) {
     return Math.floor((Math.random() * (end - start + 1) + start) / ObjectSize.WIDTH) * ObjectSize.WIDTH;
@@ -69,7 +73,7 @@ class GameObject {
         throw new Error('Not Implemented');
     }
 
-    draw(ctx) { 
+    draw(ctx) {
         ctx.fillStyle = this.color;
         ctx.moveTo(this.position.X, this.position.Y);
 
@@ -269,9 +273,8 @@ function startGame() {
         numberOfFood = parseInt(document.getElementById('foodNumber').value),
         stone = null,
         food = null,
-        snakeBody = null,
-        i = 0
 
+        GameSpeed = document.getElementById('speedSnake').value;
     gameObjects = [];
     clearInterval(intervalid);
 
@@ -340,7 +343,15 @@ function afterEndGameEvents() {
     gameField.ctx.font = fondSize + 'px Arial';
     gameField.ctx.textAlign = 'center';
     gameField.ctx.fillStyle = 'green';
-    gameField.ctx.fillText('Game Over', FieldSize.WIDTH / 2, FieldSize.HEIGHT / 2);
+    
+
+    if (Number(document.getElementById('points').textContent > recordPoints)) {
+        gameField.ctx.fillText('Congratulations! new record.', FieldSize.WIDTH / 2, FieldSize.HEIGHT / 2);
+        playerRecord = `The record is held by player ${document.getElementById('namePlayer').value} with points:${document.getElementById('points').textContent}, speed ${document.getElementById('speedSnake').value}, start length ${document.getElementById('snakeLength').value}, stones ${document.getElementById('stonesNumber').value}, food ${document.getElementById('foodNumber').value}.`;
+        document.getElementById('record').textContent = playerRecord;
+    } else {
+        gameField.ctx.fillText('Game Over', FieldSize.WIDTH / 2, FieldSize.HEIGHT / 2);
+    }
 }
 
 function update() {
