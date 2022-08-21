@@ -22,14 +22,11 @@
     <strong>Lives: </strong><span id="lives"></span>
     <strong>Points: </strong><span id="points"></span>
     <section class="clearfix">
-
-        <canvas id="gameField"></canvas>
-
-        <aside id="legend">
-            <p>
-                <img id="snake" src="images/headSnake.jpg" width="20" height="20" /> A picture of you... <br />
-                <img id="apple" src="images/apple.jpg" width="20" height="20" /> Food! Eat to grow <br />
-                <img id="stone" src="images/stone.png" width="20" height="20" /> Stones... Ouch!!! <br />
+        <nav id="legend">
+            <p class="info">
+                <img id="snake" class="imgInfo" src="images/headSnake.jpg" width="20" height="20" /> A picture of you... <img/>
+                <img id="apple" class="imgInfo" src="images/apple.jpg" width="20" height="20" /> Food! Eat to grow <img />
+                <img id="stone" class="imgInfo" src="images/stone.png" width="20" height="20" /> Stones... Ouch!!! <img />
 
             </p>
             <h3 id="record"></h3>
@@ -39,7 +36,9 @@
             <p>
                 <strong>Press button Start to start the game</strong>
             </p>
-        </aside>
+        </nav>
+        
+        <canvas id="gameField"></canvas>
 
     </section>
 

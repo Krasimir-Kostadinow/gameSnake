@@ -1,8 +1,25 @@
+body {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
 .clearfix :after {
 content: '';
 display: block;
 clear: both;
 }
+
+.info {
+    display:inline-table;
+    
+}
+
+.imgInfo {
+    padding-left: 20px;
+}
+
+
 
 #gameField {
 border: 1px solid black;
@@ -12,8 +29,9 @@ width: 960px; */
 }
 
 canvas {
-    float: left;
-    margin-right: 20px;
+    /* float: left; */
+    /* margin-right: 20px; */
+    margin-top: 20px;
 }
  
 
