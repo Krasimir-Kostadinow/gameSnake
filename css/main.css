@@ -15,6 +15,55 @@ clear: both;
     
 }
 
+
+
+/* .control {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    padding-top: 50px;
+
+}
+
+#up {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#down {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#left {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 40px;
+}
+
+#right {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+    margin-right: 5px;
+} */
 .imgInfo {
     padding-left: 20px;
 }

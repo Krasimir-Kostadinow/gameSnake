@@ -10,21 +10,25 @@
 
 <body>
     <h1>Snake - The Game</h1>
-    <label for="speedSnake">Speed</label>
-    <input id="speedSnake" type="number" value="150" min="100" max="200" />
-    <label for="snakeLength">The Snake is long... </label>
-    <input id="snakeLength" type="number" value="3" />
-    <label for="stonesNumber">Stone</label>
-    <input id="stonesNumber" type="number" value="5" />
-    <label for="foodNumber">Food</label>
-    <input id="foodNumber" type="number" value="5" />
- 
+    <div>
+        <label for="speedSnake">Speed</label>
+        <input id="speedSnake" type="number" value="150" min="100" max="200" /><br>
+        <label for="snakeLength">The Snake is long... </label>
+        <input id="snakeLength" type="number" value="3" /><br>
+        <label for="stonesNumber">Stone</label>
+        <input id="stonesNumber" type="number" value="5" /><br>
+        <label for="foodNumber">Food</label>
+        <input id="foodNumber" type="number" value="5" />
+    </div>
     <section class="clearfix">
-        <nav id="legend">
+        <div id="legend">
             <p class="info">
-                <img id="snake" class="imgInfo" src="images/headSnake.jpg" width="20" height="20" /> A picture of you... <img/>
-                <img id="apple" class="imgInfo" src="images/apple.jpg" width="20" height="20" /> Food! Eat to grow <img />
-                <img id="stone" class="imgInfo" src="images/stone.png" width="20" height="20" /> Stones... Ouch!!! <img />
+                <img id="snake" class="imgInfo" src="images/headSnake.jpg" width="20" height="20" /> A picture of you...
+                <img />
+                <img id="apple" class="imgInfo" src="images/apple.jpg" width="20" height="20" /> Food! Eat to grow
+                <img />
+                <img id="stone" class="imgInfo" src="images/stone.png" width="20" height="20" /> Stones... Ouch!!!
+                <img />
 
             </p>
             <h3 id="record"></h3>
@@ -34,14 +38,23 @@
             <p>
                 <strong>Press button Start to start the game</strong>
             </p>
-        </nav>
-   
+            <button id="btnStart">Start</button>
+            <button id="btnStartPhone">Start Phone</button>
+        </div>
+
+
         <canvas id="gameField"></canvas>
 
     </section>
-    <button id="btnStart">Start</button>
     <strong>Lives: </strong><span id="lives"></span>
     <strong>Points: </strong><span id="points"></span>
+    <br><br><br>
+    <div class="control">
+        <button id="up">UP</button><br>
+        <button id="left">LEFT</button>
+        <button id="right">RIGHT</button><br>
+        <button id="down">DOWN</button>
+    </div>
     <script src="js/game.js"></script>
 
 </body>
