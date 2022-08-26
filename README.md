@@ -5,6 +5,7 @@ For the development of the project, information from https://www.youtube.com/wat
 Screenshots:
 
 
+![gameOfComputer](https://user-images.githubusercontent.com/81486992/186840113-83328361-815b-43f6-9d96-2603d910a7cd.png)
 
 
 
