@@ -9,9 +9,27 @@ import style from "./style.js";
 
 
 let GameSpeed = 200;
-let recordPoints = 0;
-let playerRecord = 'No Record';
-document.getElementById('record').textContent = playerRecord;
+function record() {
+    fetch('https://virtual-plating-360306-default-rtdb.europe-west1.firebasedatabase.app/gameRecord.json')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('record').textContent = `Record: ${data.record} points`;
+    });
+}
+record();
+
+function newRecord() {
+    let bestPoints = {
+        record: Number(document.getElementById('points').textContent)
+    };
+
+    fetch('https://virtual-plating-360306-default-rtdb.europe-west1.firebasedatabase.app/gameRecord.json', 
+    {method: 'PATCH', body: JSON.stringify(bestPoints)});
+
+}
+
+let playerRecord = `Record: ${document.getElementById('record').textContent} points`;
+let recordPoints = Number(playerRecord.split(' ')[1]);
 
 let $start = document.getElementById('btnStart');
 let $startPhone = document.getElementById('btnStartPhone');
@@ -162,6 +180,7 @@ function afterEndGameEvents() {
         playerRecord = `Record: ${document.getElementById('points').textContent} points`;
         document.getElementById('record').textContent = playerRecord;
         recordPoints = Number(document.getElementById('points').textContent);
+        newRecord();
     } else {
         gameField.ctx.fillText('Game Over', helper.FieldSize.WIDTH / 2, helper.FieldSize.HEIGHT / 2);
     }
