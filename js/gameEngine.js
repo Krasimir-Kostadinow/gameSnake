@@ -11,10 +11,10 @@ import style from "./style.js";
 let GameSpeed = 200;
 function record() {
     fetch('https://virtual-plating-360306-default-rtdb.europe-west1.firebasedatabase.app/gameRecord.json')
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('record').textContent = `Record: ${data.record} points`;
-    });
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('record').textContent = `Record: ${data.record} points`;
+        });
 }
 record();
 
@@ -23,13 +23,12 @@ function newRecord() {
         record: Number(document.getElementById('points').textContent)
     };
 
-    fetch('https://virtual-plating-360306-default-rtdb.europe-west1.firebasedatabase.app/gameRecord.json', 
-    {method: 'PATCH', body: JSON.stringify(bestPoints)});
+    fetch('https://virtual-plating-360306-default-rtdb.europe-west1.firebasedatabase.app/gameRecord.json',
+        { method: 'PATCH', body: JSON.stringify(bestPoints) });
 
 }
 
-let playerRecord = `Record: ${document.getElementById('record').textContent} points`;
-let recordPoints = Number(playerRecord.split(' ')[1]);
+
 
 let $start = document.getElementById('btnStart');
 let $startPhone = document.getElementById('btnStartPhone');
@@ -162,6 +161,7 @@ function startGame(e) {
 }
 
 function endGame() {
+    record();
     clearInterval(intervalid);
     setTimeout(afterEndGameEvents, GameSpeed);
 }
@@ -173,6 +173,8 @@ function afterEndGameEvents() {
     gameField.ctx.textAlign = 'center';
     gameField.ctx.fillStyle = 'green';
 
+    let playerRecord = document.getElementById('record').textContent;
+    let recordPoints = Number(playerRecord.split(' ')[1]);
 
     if (Number(document.getElementById('points').textContent > recordPoints)) {
         gameField.ctx.fillText('Well done!', helper.FieldSize.WIDTH / 2, helper.FieldSize.HEIGHT / 2);
@@ -258,7 +260,7 @@ function getKey(event) {
 
 }
 
-export default {endGame, afterEndGameEvents};
+export default { endGame, afterEndGameEvents };
 
 
 
