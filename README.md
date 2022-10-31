@@ -10,4 +10,4 @@ Screenshots:
 ![snakeGamePhone2](https://user-images.githubusercontent.com/81486992/186840386-0cb9bb60-2ed1-45f8-8e4e-fff132024737.png)
 
 
-Test game - http://projectgamesnake.atwebpages.com/
+Test game - http://projectgamesnake.atwebpages.com/ or https://krasimir-kostadinow.github.io/gameSnake/
